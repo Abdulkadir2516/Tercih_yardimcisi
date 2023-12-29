@@ -8,15 +8,15 @@ html_icerik = istek.content;
 soup = BeautifulSoup(html_icerik, "html.parser");
 # print(soup);
 
-sorgu = soup.findAll("a", {"class":"btn btn-primary my-2"});
+sorgu = soup.findAll("a", {"class":"btn btn-primary my-2"})
 clean_list = ["LGS","YKS","DGS","TUS","DUS","MSÜ"]
-alan = "Yks"
+alan = "lgs"
 uniler = []
 for i in sorgu:
     if(alan.upper() == str(i.text).split(" ")[0]):
         print(i.text,url+i["href"])
 
-        if(str(i.text).find("Puan")>0):
+        if(str(i.text).find("Hes")>0 or str(i.text).find("Bölümler")>0):
            continue
 
 

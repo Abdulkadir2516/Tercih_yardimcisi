@@ -29,14 +29,14 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>30</y>
+      <x>370</x>
+      <y>40</y>
       <width>491</width>
       <height>321</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -55,7 +55,7 @@
        <string>Search</string>
       </property>
      </widget>
-     <widget class="QListWidget" name="selected_departments">
+     <widget class="QListWidget" name="selected_liste1">
       <property name="geometry">
        <rect>
         <x>300</x>
@@ -65,7 +65,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QListWidget" name="all_departments">
+     <widget class="QListWidget" name="liste1">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -104,8 +104,67 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Bölümler</string>
      </attribute>
+     <widget class="QPushButton" name="drop_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>160</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;&lt; Kaldır</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="liste">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>171</width>
+        <height>241</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="selected_liste2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>40</y>
+        <width>171</width>
+        <height>241</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="puan_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Search</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="add_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>120</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ekle &gt;&gt;</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox">
