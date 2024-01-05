@@ -29,9 +29,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>40</y>
-      <width>491</width>
+      <x>400</x>
+      <y>50</y>
+      <width>711</width>
       <height>321</height>
      </rect>
     </property>
@@ -58,9 +58,9 @@
      <widget class="QListWidget" name="selected_liste1">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>410</x>
         <y>40</y>
-        <width>171</width>
+        <width>281</width>
         <height>241</height>
        </rect>
       </property>
@@ -70,7 +70,7 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>171</width>
+        <width>281</width>
         <height>241</height>
        </rect>
       </property>
@@ -78,8 +78,8 @@
      <widget class="QPushButton" name="add">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>120</y>
+        <x>320</x>
+        <y>110</y>
         <width>51</width>
         <height>31</height>
        </rect>
@@ -91,14 +91,28 @@
      <widget class="QPushButton" name="drop">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>160</y>
+        <x>320</x>
+        <y>150</y>
         <width>51</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>&lt;&lt; Kaldır</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="getir_1">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>190</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Üniversiteleri 
+Getir</string>
       </property>
      </widget>
     </widget>
@@ -109,8 +123,8 @@
      <widget class="QPushButton" name="drop_2">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>160</y>
+        <x>320</x>
+        <y>150</y>
         <width>51</width>
         <height>31</height>
        </rect>
@@ -124,7 +138,7 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>171</width>
+        <width>281</width>
         <height>241</height>
        </rect>
       </property>
@@ -132,9 +146,9 @@
      <widget class="QListWidget" name="selected_liste2">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>410</x>
         <y>40</y>
-        <width>171</width>
+        <width>281</width>
         <height>241</height>
        </rect>
       </property>
@@ -155,14 +169,28 @@
      <widget class="QPushButton" name="add_2">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>120</y>
+        <x>320</x>
+        <y>110</y>
         <width>51</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>Ekle &gt;&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="getir_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>190</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Bölümleri 
+getir</string>
       </property>
      </widget>
     </widget>
@@ -172,7 +200,7 @@
      <rect>
       <x>20</x>
       <y>370</y>
-      <width>951</width>
+      <width>1151</width>
       <height>271</height>
      </rect>
     </property>
@@ -184,7 +212,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>921</width>
+       <width>1121</width>
        <height>241</height>
       </rect>
      </property>
