@@ -8,7 +8,8 @@ def getir(value):
     istek = requests.get(url2)
     html_icerik = istek.content
     soup = BeautifulSoup(html_icerik, "html.parser")
-    sorgu = soup.find("tbody")
+    sorgu = soup.find("table").find_all("a")
+
     cities = []
     for j in sorgu:
         ifade = str(j.text).replace("\n", "")
@@ -17,14 +18,31 @@ def getir(value):
 
     return cities
 
-def getir2(sinav_turu, alan):
+def getir2(sinav_turu, alan,part):
     alan2 = str(alan).lower().replace(" ", "-")
-    url2 = url + f"/{sinav_turu}/bolum/{alan2}"
+    url2 = url +"/"+str(sinav_turu)+"/"+str(part)+"/"+str(alan2)
     print(url2)
     istek = requests.get(url2)
     html_icerik = istek.content
     soup = BeautifulSoup(html_icerik, "html.parser")
-    sorgu = soup.find("tbody").find_all("tr")
+
+    if sinav_turu != "dus":
+        sorgu = soup.find("table").find_all("a")
+
+        uni = []
+        for i in sorgu:
+            uni.append(i.text)
+        return uni[::2]
+    else:
+        sorgu = soup.find("tbody").find_all("tr")
+        liste = []
+        for i in sorgu:
+            liste.append(str(i.text).split("\n")[2])
+        return liste
+
+
+
+    """
     bolum = []
     print(sorgu[1])
 
@@ -34,7 +52,7 @@ def getir2(sinav_turu, alan):
         if len(ifade) > 2:
             bolum.append(ifade)
 
-    print(bolum)
+    print(bolum)"""
 
 
 

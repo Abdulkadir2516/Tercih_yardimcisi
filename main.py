@@ -30,17 +30,28 @@ class window(QMainWindow, Ui_MainWindow):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), "Üniversiteler")
 
     def uni_bolumleri_getir(self):
-        sinav = self.exams.currentText()
+        sinav = self.exams.currentText().lower()
         # bolum
+        print(sinav)
+        if sinav == "yks" or sinav == "dgs":
+            part = "bolum"
+        elif sinav == "tus" or sinav == "dus":
+            part = "hastane"
 
+        self.temizle(1)
 
         secilen_bolumler = self.selected_liste1.count()
         print(secilen_bolumler)
-
+        üniler = []
         for i in range(secilen_bolumler):
-            alan = str(self.selected_liste1.item(i).text())
-            alan = alan.translate(str.maketrans("üışçö","uisco"))
-            veri_getir.getir2(sinav,alan)
+            alan = str(self.selected_liste1.item(i).text()).lower()
+            alan = alan.translate(str.maketrans("üışçöğ","uiscog"))
+
+            print(veri_getir.getir2(sinav,alan,part))
+            üniler += list(veri_getir.getir2(sinav,alan,part))
+
+        self.liste.addItems(list(set(üniler)))
+        self.liste.sortItems()
 
 
 
@@ -65,11 +76,21 @@ class window(QMainWindow, Ui_MainWindow):
     def remove2(self):
         self.selected_liste2.takeItem(self.selected_liste2.currentRow())
 
-    def temizle(self):
-        self.liste1.clear()
-        self.liste.clear()
-        self.selected_liste1.clear()
-        self.selected_liste2.clear()
+    def temizle(self, kimi=3):
+        if kimi == 1:
+            self.liste.clear()
+            self.selected_liste2.clear()
+
+
+        elif kimi==2:
+            self.liste1.clear()
+            self.selected_liste1.clear()
+
+        elif kimi == 3:
+            self.liste.clear()
+            self.selected_liste1.clear()
+            self.liste1.clear()
+            self.selected_liste2.clear()
 
 
 
