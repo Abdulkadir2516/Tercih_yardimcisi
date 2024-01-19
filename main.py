@@ -25,9 +25,14 @@ class window(QMainWindow, Ui_MainWindow):
 
         self.getir_1.clicked.connect(self.uni_bolumleri_getir)
         self.getir_2.clicked.connect(self.bolum_hastane_getir)
+        self.getir.clicked.connect(self.deneme)
 
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), "Şehirler")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), "Üniversiteler")
+
+    def deneme(self):
+        pass
+
 
     def uni_bolumleri_getir(self):
         sinav = self.exams.currentText().lower()
@@ -44,8 +49,9 @@ class window(QMainWindow, Ui_MainWindow):
         print(secilen_bolumler)
         üniler = []
         for i in range(secilen_bolumler):
-            alan = str(self.selected_liste1.item(i).text()).lower()
-            alan = alan.translate(str.maketrans("üışçöğ","uiscog"))
+            alan = str(self.selected_liste1.item(i).text())
+            alan = alan.translate(str.maketrans("İÜÇÖŞĞ", "ıüçöşğ"))
+            alan = alan.translate(str.maketrans("üışçöğ", "uiscog"))
 
             print(veri_getir.getir2(sinav,alan,part))
             üniler += list(veri_getir.getir2(sinav,alan,part))
@@ -54,10 +60,31 @@ class window(QMainWindow, Ui_MainWindow):
         self.liste.sortItems()
 
 
-
-
     def bolum_hastane_getir(self):
-        pass
+        sinav = self.exams.currentText().lower()
+        # bolum
+        print(sinav)
+        if sinav == "yks" or sinav == "dgs":
+            part = "uni"
+        elif sinav == "tus" or sinav == "dus":
+            part = "bolum"
+
+        self.temizle(2)
+
+        secilen_bolumler = self.selected_liste2.count()
+        print(secilen_bolumler)
+        üniler = []
+        for i in range(secilen_bolumler):
+            alan = str(self.selected_liste2.item(i).text())
+            alan = alan.translate(str.maketrans("İÜÇÖŞĞ", "ıüçöşğ"))
+            alan = alan.translate(str.maketrans("üışçöğ", "uiscog"))
+
+            print(veri_getir.getir2(sinav, alan, part))
+            üniler += list(veri_getir.getir2(sinav, alan, part))
+
+        self.liste1.addItems(list(set(üniler)))
+        #self.liste1.sortItems()
+
 
 
 

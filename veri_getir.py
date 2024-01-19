@@ -20,8 +20,9 @@ def getir(value):
 
 def getir2(sinav_turu, alan,part):
     alan2 = str(alan).lower().replace(" ", "-")
+    url3 = f"{url}/{str(sinav_turu)}/{str(part)}/{str(alan2)}"
     url2 = url +"/"+str(sinav_turu)+"/"+str(part)+"/"+str(alan2)
-    print(url2)
+    print(str(url3))
     istek = requests.get(url2)
     html_icerik = istek.content
     soup = BeautifulSoup(html_icerik, "html.parser")
@@ -39,6 +40,22 @@ def getir2(sinav_turu, alan,part):
         for i in sorgu:
             liste.append(str(i.text).split("\n")[2])
         return liste
+
+def find(sinav_turu, alan, part):
+    alan2 = str(alan).lower().replace(" ", "-")
+    url3 = f"{url}/{str(sinav_turu)}/{str(part)}/{str(alan2)}"
+    url2 = url + "/" + str(sinav_turu) + "/" + str(part) + "/" + str(alan2)
+    print(str(url3))
+    istek = requests.get(url2)
+    html_icerik = istek.content
+    soup = BeautifulSoup(html_icerik, "html.parser")
+
+    print(url3)
+    sorgu = soup.find("tbody").find_all("tr")
+    liste = []
+    for i in sorgu:
+        liste.append(str(i.text).split("\n"))
+    print(liste)
 
 
 
