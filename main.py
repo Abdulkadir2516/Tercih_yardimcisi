@@ -25,13 +25,52 @@ class window(QMainWindow, Ui_MainWindow):
 
         self.getir_1.clicked.connect(self.uni_bolumleri_getir)
         self.getir_2.clicked.connect(self.bolum_hastane_getir)
-        self.getir.clicked.connect(self.deneme)
+        self.getir.clicked.connect(self.artik_getir)
 
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), "Şehirler")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), "Üniversiteler")
 
-    def deneme(self):
-        pass
+    def elemanlar(self, liste):
+        
+        sayi = liste.count()
+        elemanlar = []
+
+        for i in range(sayi):
+            bolum = str(liste.item(i).text())
+            bolum = bolum.translate(str.maketrans("İÜÇÖŞĞ", "ıüçöşğ"))
+            bolum = bolum.translate(str.maketrans("üışçöğ", "uiscog"))
+            
+
+            elemanlar.append(bolum)
+
+        return elemanlar
+
+    def artik_getir(self):
+        sinav = self.exams.currentText().lower()
+        
+        elements = self.elemanlar(self.selected_liste2)
+        
+        for i in elements:
+
+            sayi = self.selected_liste1.count()
+            istekler = []
+
+            for j in range(sayi):
+                uni = str(self.selected_liste1.item(j).text())
+                istekler.append(uni)
+
+
+            x = veri_getir.find(sinav,i,"bolum")
+            print(x)
+
+            print("\n\n")
+            for i in x:
+
+                if i[2] in istekler:
+                    print(i)
+
+            
+
 
 
     def uni_bolumleri_getir(self):
@@ -83,7 +122,7 @@ class window(QMainWindow, Ui_MainWindow):
             üniler += list(veri_getir.getir2(sinav, alan, part))
 
         self.liste1.addItems(list(set(üniler)))
-        #self.liste1.sortItems()
+        self.liste1.sortItems()
 
 
 
