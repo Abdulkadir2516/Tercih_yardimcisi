@@ -48,30 +48,20 @@ class window(QMainWindow, Ui_MainWindow):
     def artik_getir(self):
         sinav = self.exams.currentText().lower()
         
-        elements = self.elemanlar(self.selected_liste2)
-        
-        for i in elements:
+        secilmis_üniler = self.elemanlar(self.selected_liste2)
+        secilmis_bölümler = self.elemanlar(self.selected_liste1)
 
-            sayi = self.selected_liste1.count()
-            istekler = []
+        for i in secilmis_üniler:
 
-            for j in range(sayi):
-                uni = str(self.selected_liste1.item(j).text())
-                istekler.append(uni)
+            x = veri_getir.find(sinav,i,"uni")
+            #print(x)
 
-
-            x = veri_getir.find(sinav,i,"bolum")
-            print(x)
-
-            print("\n\n")
-            for i in x:
-
-                if i[2] in istekler:
-                    print(i)
-
-            
-
-
+            print("\n")
+            for j in x:
+                for k in secilmis_bölümler:
+                    #print(str(j[2]).strip(), k)
+                    if(str(j[2]).strip() == k):
+                        print(j)
 
     def uni_bolumleri_getir(self):
         sinav = self.exams.currentText().lower()
